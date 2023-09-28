@@ -1,0 +1,16 @@
+@import 'tabler/core';
+
+html {
+  &:not(.theme-dark):not([data-bs-theme=dark]) {
+    .hide-light {
+      display: none !important;
+    }
+  }
+
+  &.theme-dark,
+  &[data-bs-theme=dark] {
+    .hide-dark {
+      display: none !important;
+    }
+  }
+}

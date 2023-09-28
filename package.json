@@ -11,6 +11,11 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "nuxt": "^3.7.4"
+    "@nuxtjs/color-mode": "^3.3.0",
+    "nuxt": "^3.7.4",
+    "sass": "^1.64.2"
+  },
+  "dependencies": {
+    "@tabler/core": "^1.0.0-beta20"
   }
 }
