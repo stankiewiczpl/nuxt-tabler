@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { IconLogin2, IconKey, IconBell, IconSun, IconMoon } from '@tabler/icons-vue'
+import { IconLogin2, IconKey } from '@tabler/icons-vue'
+import LayoutNotifications from '~//components/layout/notifications.vue'
+import ThemeSwitcher from '~//components/layout/ThemeSwitcher.vue'
 const auth = useAuth()
 const user = auth.session.value
 </script>
@@ -19,197 +21,37 @@ const user = auth.session.value
         <span class="navbar-toggler-icon" />
       </button>
       <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-        <a href=".">
+        <nuxt-link to="/">
           <img src="/static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
-        </a>
+        </nuxt-link>
       </h1>
       <div class="navbar-nav flex-row order-md-last">
-        <div class="nav-item d-none d-md-flex me-3">
+        <div v-if="!auth.authenticated.value" class="nav-item d-none d-md-flex me-3">
           <div class="btn-list">
             <nuxt-link :to="{ name: 'auth-login'}" class="btn">
               <IconKey class="icon me-2" />
-              Logowanie
+              {{ $t('Sign in') }}
             </nuxt-link>
             <nuxt-link :to="{ name: 'auth-register'}" class="btn">
               <IconLogin2 class="icon me-2" />
-              Rejestracja
+              {{ $t('Sign up') }}
             </nuxt-link>
           </div>
         </div>
-        <div class="d-none d-md-flex">
-          <a
-            href="#"
-            class="nav-link px-0 hide-dark"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            aria-label="Enable dark mode"
-            data-bs-original-title="Enable dark mode"
-            @click.prevent="$colorMode.preference = 'dark'"
-          >
-            <IconMoon class="icon" />
-          </a>
-          <a
-            href="#"
-            class="nav-link px-0 hide-light"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            aria-label="Enable light mode"
-            data-bs-original-title="Enable light mode"
-            @click.prevent="$colorMode.preference = 'light'"
-          >
-            <IconSun class="icon" />
-          </a>
-          <div class="nav-item dropdown d-none d-md-flex me-3">
-            <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications">
-              <IconBell class="icon" />
-              <span class="badge bg-red" />
-            </a>
-            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    Last updates
-                  </h3>
-                </div>
-                <div class="list-group list-group-flush list-group-hoverable">
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <span class="status-dot status-dot-animated bg-red d-block" />
-                      </div>
-                      <div class="col text-truncate">
-                        <a href="#" class="text-body d-block">Example 1</a>
-                        <div class="d-block text-secondary text-truncate mt-n1">
-                          Change deprecated html tags to text decoration classes (#29604)
-                        </div>
-                      </div>
-                      <div class="col-auto">
-                        <a href="#" class="list-group-item-actions">
-                          <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon text-muted"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <span class="status-dot d-block" />
-                      </div>
-                      <div class="col text-truncate">
-                        <a href="#" class="text-body d-block">Example 2</a>
-                        <div class="d-block text-secondary text-truncate mt-n1">
-                          justify-content:between ⇒ justify-content:space-between (#29734)
-                        </div>
-                      </div>
-                      <div class="col-auto">
-                        <a href="#" class="list-group-item-actions show">
-                          <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon text-yellow"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <span class="status-dot d-block" />
-                      </div>
-                      <div class="col text-truncate">
-                        <a href="#" class="text-body d-block">Example 3</a>
-                        <div class="d-block text-secondary text-truncate mt-n1">
-                          Update change-version.js (#29736)
-                        </div>
-                      </div>
-                      <div class="col-auto">
-                        <a href="#" class="list-group-item-actions">
-                          <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon text-muted"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <span class="status-dot status-dot-animated bg-green d-block" />
-                      </div>
-                      <div class="col text-truncate">
-                        <a href="#" class="text-body d-block">Example 4</a>
-                        <div class="d-block text-secondary text-truncate mt-n1">
-                          Regenerate package-lock.json (#29730)
-                        </div>
-                      </div>
-                      <div class="col-auto">
-                        <a href="#" class="list-group-item-actions">
-                          <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon text-muted"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          ><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div v-if="auth.isLoggedIn()" class="nav-item dropdown">
+        <ThemeSwitcher />
+        <LayoutNotifications v-if="auth.authenticated.value" />
+        <div v-if="auth.authenticated.value" class="nav-item dropdown">
           <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-            <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)" />
+            <span class="avatar avatar-sm" style="background-image: url(/static/avatars/000m.jpg)" />
             <div class="d-none d-xl-block ps-2">
               <div>{{ user.name }}</div>
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-            <a href="#" class="dropdown-item">Status</a>
-            <nuxt-link :to="{ name: 'account-profile'}" class="dropdown-item">Profile</nuxt-link>
-            <a href="#" class="dropdown-item">Feedback</a>
+            <nuxt-link :to="{ name: 'account-profile'}" class="dropdown-item">
+              Profile
+            </nuxt-link>
             <div class="dropdown-divider" />
-            <a href="./settings.html" class="dropdown-item">Settings</a>
             <a href="#" class="dropdown-item" @click.prevent="auth.signOut()">Logout</a>
           </div>
         </div>

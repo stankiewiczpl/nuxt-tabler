@@ -13,6 +13,7 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/i18n": "^8.0.0-rc.5",
     "@typescript-eslint/parser": "^6.7.5",
     "@vee-validate/nuxt": "^4.11.7",
     "eslint": "^8.51.0",

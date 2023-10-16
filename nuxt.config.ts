@@ -2,7 +2,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/color-mode',
-    '@vee-validate/nuxt'
+    '@vee-validate/nuxt',
+    '@nuxtjs/i18n'
   ],
   runtimeConfig: {
     apiUrl: process.env.NUXT_API_URL,
@@ -32,5 +33,8 @@ export default defineNuxtConfig({
       FieldArray: 'VFieldArray',
       ErrorMessage: 'VErrorMessage'
     }
+  },
+  i18n: {
+    vueI18n: '~/config/i18n.config.ts'
   }
 })
