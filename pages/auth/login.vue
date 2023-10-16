@@ -100,11 +100,14 @@ import { IconBrandFacebook, IconBrandGoogle, IconEye } from '@tabler/icons-vue'
 import { useApi } from '~/composables/useApi'
 const router = useRouter()
 definePageMeta({
-  layout: 'auth'
+  layout: 'auth',
+  middleware: [
+    'guest'
+  ]
 })
 const credentials = reactive({
-  email: 'stankiewicz.opole@gmail.com',
-  password: 'Secret_!'
+  email: null,
+  password: null
 })
 const loginForm = ref(null)
 async function onSubmit (values: any) {

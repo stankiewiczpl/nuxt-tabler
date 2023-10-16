@@ -206,7 +206,7 @@ const user = auth.session.value
           </a>
           <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
             <a href="#" class="dropdown-item">Status</a>
-            <a href="./profile.html" class="dropdown-item">Profile</a>
+            <nuxt-link :to="{ name: 'account-profile'}" class="dropdown-item">Profile</nuxt-link>
             <a href="#" class="dropdown-item">Feedback</a>
             <div class="dropdown-divider" />
             <a href="./settings.html" class="dropdown-item">Settings</a>

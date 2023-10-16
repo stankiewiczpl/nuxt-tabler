@@ -28,7 +28,7 @@
                 autocomplete="name"
                 :class="{'is-invalid': !!errors.length }"
               >
-              <VErrorMessage class="invalid-feedback" name="email" />
+              <VErrorMessage class="invalid-feedback" name="name" />
             </VField>
           </div>
           <div class="mb-3">
@@ -122,14 +122,17 @@ import { reactive, ref } from 'vue'
 import { IconBrandFacebook, IconBrandGoogle } from '@tabler/icons-vue'
 import { useApi } from '#imports'
 definePageMeta({
-  layout: 'auth'
+  layout: 'auth',
+  middleware: [
+    'guest'
+  ]
 })
 const credentials = reactive({
-  name: 'John Doe',
-  email: 'stankiewicz.opole@gmail.com',
-  password: 'Secret_!',
-  password_confirmation: 'Secret_!',
-  terms_of_use: false
+  name: null,
+  email: null,
+  password: null,
+  password_confirmation: null,
+  terms_of_use: null
 })
 const registerForm = ref(null)
 async function onSubmit (payload: any) {
@@ -137,6 +140,9 @@ async function onSubmit (payload: any) {
     body: payload,
     method: 'POST'
   })
+  if (data.value) {
+    useRouter().push('/')
+  }
   if (error.value) {
     registerForm?.value?.setErrors(error.value?.data.errors)
   }
