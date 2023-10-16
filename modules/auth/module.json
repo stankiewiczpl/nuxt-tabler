@@ -1,0 +1,5 @@
+{
+  "name": "nuxt-jwt",
+  "configKey": "nuxtJwt",
+  "version": "0.0.1"
+}
