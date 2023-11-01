@@ -10,7 +10,7 @@ definePageMeta({
   <div class="col-12 col-md-9 d-flex flex-column">
     <div class="card-body">
       <h2 class="mb-4">
-        My Account
+        Notifications
       </h2>
       <h3 class="card-title">
         Profile Details

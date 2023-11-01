@@ -20,7 +20,7 @@
         >
           <div class="mb-3">
             <VField v-slot="{ field, errors }" name="email">
-              <label class="form-label">Email address</label>
+              <label class="form-label">{{ $t('Email address') }}</label>
               <input
                 v-bind="field"
                 type="email"
@@ -37,7 +37,7 @@
               <label class="form-label">
                 Password
                 <span class="form-label-description">
-                  <a href="#">I forgot password</a>
+                  <nuxt-link to="/auth/forgot-password">{{ $t('I forgot password') }}</nuxt-link>
                 </span>
               </label>
               <div class="input-group input-group-flat">
@@ -51,7 +51,7 @@
                   :class="{'is-invalid': !!errors.length }"
                 >
                 <span class="input-group-text" :class="{'border-danger': !!errors.length }">
-                  <a href="#" class="link-secondary" data-bs-toggle="tooltip" aria-label="Show password" data-bs-original-title="Show password">
+                  <a href="#" class="link-secondary" data-bs-toggle="tooltip" data-bs-original-title="Show password">
                     <IconEye :size="24" :stroke-width="2" class="icon" />
                   </a>
                 </span>
@@ -61,7 +61,7 @@
           </div>
           <div class="form-footer">
             <button type="submit" class="btn btn-primary w-100">
-              Sign in
+              {{ $t('Sign in') }}
             </button>
           </div>
         </VForm>
@@ -74,20 +74,20 @@
           <div class="col">
             <a href="#" class="btn w-100">
               <IconBrandFacebook class="icon text-facebook" />
-              Login with Facebook
+              {{ $t('Login with Facebook') }}
             </a>
           </div>
           <div class="col">
             <a href="#" class="btn w-100">
               <IconBrandGoogle class="icon text-google" />
-              Login with Google
+              {{ $t('Login with Google') }}
             </a>
           </div>
         </div>
       </div>
     </div>
     <div class="text-center text-secondary mt-3">
-      Don't have account yet? <nuxt-link :to="{ name: 'auth-register'}">
+      {{ $t('Don\'t have account yet?') }} <nuxt-link :to="{ name: 'auth-register'}">
         Rejestracja
       </nuxt-link>
     </div>
