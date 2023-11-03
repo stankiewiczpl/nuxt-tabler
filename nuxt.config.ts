@@ -1,5 +1,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  extends: [
+    './layers/accounting'
+  ],
   modules: [
     '@nuxtjs/color-mode',
     '@vee-validate/nuxt',

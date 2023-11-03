@@ -1,5 +1,6 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt-tabler",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -19,14 +20,15 @@
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "nuxt": "^3.7.4",
+    "nuxt": "^3.8.0",
     "prettier": "^3.0.3",
-    "sass": "^1.64.2"
+    "sass": "^1.64.2",
+    "vue": "^3.3.7",
+    "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@auth/core": "^0.14.0",
-    "@hebilicious/authjs-nuxt": "^0.3.4",
     "@tabler/core": "^1.0.0-beta20",
-    "@tabler/icons-vue": "^2.37.0"
+    "@tabler/icons-vue": "^2.37.0",
+    "immer": "^10.0.3"
   }
 }

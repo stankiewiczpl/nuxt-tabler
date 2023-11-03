@@ -1,6 +1,7 @@
-import { computed, ComputedRef, readonly, watch } from 'vue'
+import { computed, readonly } from 'vue'
+import type { ComputedRef } from 'vue'
 import { produce } from 'immer'
-import type { User } from '~/types/User'
+// import type { User } from '~/types/User'
 export const useAuth = () => {
   const accessTokenCookie = useCookie('access_token', {
     maxAge: 30 * 24 * 60 * 60 * 1000
@@ -10,7 +11,7 @@ export const useAuth = () => {
 
   const session = useState('auth:session', () => null)
   const user: ComputedRef<null> = computed(() => session.value ?? null)
-  const updateSession = (u: ((draft: null) => void | null | undefined) | null) => {
+  const updateSession = (u: any) => {
     session.value = typeof u === 'function' ? produce(session.value, u) : u
     authenticated.value = u !== null
   }
@@ -18,7 +19,7 @@ export const useAuth = () => {
   const signIn = async (payload: any) => {
     accessTokenCookie.value = payload.access_token
     accessToken.value = payload.access_token
-    const { data, error } = await useApi('auth/user', {
+    const { data } = await useApi('auth/user', {
       method: 'GET'
     })
     if (data.value) {
