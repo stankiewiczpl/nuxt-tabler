@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: [
-    './layers/accounting'
+    ...process.env.LAYERS.split(',')
   ],
   modules: [
     '@nuxtjs/color-mode',

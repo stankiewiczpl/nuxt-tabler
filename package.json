@@ -8,7 +8,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -29,6 +30,7 @@
   "dependencies": {
     "@tabler/core": "^1.0.0-beta20",
     "@tabler/icons-vue": "^2.37.0",
-    "immer": "^10.0.3"
+    "immer": "^10.0.3",
+    "lodash": "^4.17.21"
   }
 }

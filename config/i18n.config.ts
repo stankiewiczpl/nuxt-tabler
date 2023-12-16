@@ -1,6 +1,8 @@
 import pl from '~/lang/pl.json'
 import en from '~/lang/en.json'
 export default defineI18nConfig(() => ({
+  missingWarn: false,
+  fallbackWarn: false,
   legacy: false,
   locale: 'pl',
   messages: {

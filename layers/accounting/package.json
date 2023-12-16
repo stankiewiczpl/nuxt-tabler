@@ -1,9 +1,0 @@
-{
-  "name": "accounting-layer",
-  "type": "module",
-  "version": "0.0.0",
-  "main": "./nuxt.config.ts",
-  "dependencies": {
-    "vue3-easy-data-table": "^1.5.47"
-  }
-}

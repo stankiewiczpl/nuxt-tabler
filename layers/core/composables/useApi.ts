@@ -15,3 +15,8 @@ export function useApi<T> (url: string, options: UseFetchOptions<T> = {}) {
 
   return useFetch(url, params)
 }
+
+export function useApiUrl (): string {
+  const config = useRuntimeConfig()
+  return config.public.apiUrl
+}
