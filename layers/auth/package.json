@@ -1,0 +1,6 @@
+{
+  "name": "auth-layer",
+  "type": "module",
+  "version": "0.0.0",
+  "main": "./nuxt.config.ts"
+}

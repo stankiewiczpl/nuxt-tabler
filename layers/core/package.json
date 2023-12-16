@@ -1,0 +1,16 @@
+{
+  "name": "core-layer",
+  "type": "module",
+  "version": "0.0.0",
+  "main": "./nuxt.config.ts",
+  "dependencies": {
+    "@uppy/core": "^3.7.1",
+    "@uppy/dashboard": "^3.7.1",
+    "@uppy/drop-target": "^2.0.2",
+    "@uppy/google-drive": "^3.3.0",
+    "@uppy/locales": "^3.5.0",
+    "@uppy/transloadit": "^3.4.0",
+    "@uppy/xhr-upload": "^3.5.0",
+    "vue-toastification": "2.0.0-rc.5"
+  }
+}
